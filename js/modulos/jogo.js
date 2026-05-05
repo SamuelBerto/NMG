@@ -1,40 +1,29 @@
-console.log("Jogo carregado com sucesso!");
+document.addEventListener("DOMContentLoaded", () => {
 
-const daddos = JSON.parse(localStorage.getItem("jogador"));
+    const dados = JSON.parse(localStorage.getItem("jogador"));
 
-if (!daddos) {
-    window.location.href = "index.html";
+    if (!dados) {
+        window.location.href = "index.html";
+        return;
+    }
 
-}
+    document.getElementById("player").innerText = "Jogador: " + dados.nome;
 
-document.getElementById("player").innerText ="Jogador: " + daddos.nome;
+    const imagens = ["1.png","2.png","3.png","4.png","5.png","6.png"];
 
-const imagens = [
-    "imagens/1.png",
-    "imagens/2.png",
-    "imagens/3.png",
-    "imagens/4.png",
-    "imagens/5.png",
-    "imagens/6.png",
-    
-];
+    let cartas = [...imagens, ...imagens];
+    cartas.sort(() => 0.5 - Math.random());
 
-let cartas = [...imagens, ...imagens];
-cartas.sort(() =>0.5 - Math.random());
+    const tabuleiro = document.getElementById("tabuleiro");
 
-const tabuleiro =document.getElementById("tabuleiro");
+    cartas.forEach(img => {
+        const carta = document.createElement("div");
+        carta.classList.add("carta");
 
-cartas.forEach(img => {
-    const carta = document.createElement("div");
-    carta.classList.add("carta");
+        carta.innerHTML = img;
 
-    carta.dataset.img = img;
+        tabuleiro.appendChild(carta);
+    });
 
-    carta.onclick = () => {
-        carta.innerHTML = `<img src="imagens/${img}">`;
-
-    };
-
-    tabuleiro.appendChild(carta);
 });
 
