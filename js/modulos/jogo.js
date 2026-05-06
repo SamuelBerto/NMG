@@ -20,7 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const carta = document.createElement("div");
         carta.classList.add("carta");
 
-        carta.innerHTML = img;
+        carta.onclick =() => {
+            carta.innerHTML =  `<img src="imagens/${img}"  width="64">`;
+
+        };
 
         tabuleiro.appendChild(carta);
     });

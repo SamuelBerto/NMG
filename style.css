@@ -1,17 +1,18 @@
 #tabuleiro {
     display: grid;
-    grid-template-columns: repeat(4, 64px);
+    grid-template-columns: repeat(4, 70px);
     gap: 10px;
     justify-content: center;
     margin-top: 20px;
 }
 .carta {
-    width: 64px;
-    height: 64px;
-    background: #ccc;
+    width: 70px;
+    height: 70px;
+    background: #63af53;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8%;
 }
+
