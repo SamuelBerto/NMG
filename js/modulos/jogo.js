@@ -16,17 +16,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tabuleiro = document.getElementById("tabuleiro");
 
+    let primeiraCarta = null;
+    let segundaCarta = null;
+    let bloqueado = false;
+
     cartas.forEach(img => {
         const carta = document.createElement("div");
         carta.classList.add("carta");
-
+        carta.dataset.img = img;
         carta.onclick =() => {
-            carta.innerHTML =  `<img src="imagens/${img}"  width="64">`;
+            if (bloqueado) return;
+            if (carta.innerHTML !=="") return;
+            if (carta === primeiraCarta) return;
 
+            carta.innerHTML = `<img src="imagens/${img}" width="64">`;
+
+            if (!primeiraCarta) {
+                primeiraCarta = carta;
+            } else {
+                segundaCarta = carta;
+                bloqueado = true;
+
+                verificarPar();
+            }
         };
 
         tabuleiro.appendChild(carta);
     });
 
+
+function verificarPar() {
+    if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
+        resetar();
+    } else {
+        setTimeout(() => {
+            primeiraCarta.innerHTML = "";
+            segundaCarta.innerHTML = "";
+            resetar();
+        }, 800);
+    }
+}
+
+function resetar() {
+    primeiraCarta = null;
+    segundaCarta = null;
+    bloqueado = false;
+}
+
 });
+
+
 
