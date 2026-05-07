@@ -24,12 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const carta = document.createElement("div");
         carta.classList.add("carta");
         carta.dataset.img = img;
+        carta.dataset.virada = "false";
+        carta.innerHTML = `<img src="imagens/back.png" width="64">`;
+        
         carta.onclick =() => {
             if (bloqueado) return;
-            if (carta.innerHTML !=="") return;
+            if (carta.dataset.virada === "true") return;
             if (carta === primeiraCarta) return;
 
             carta.innerHTML = `<img src="imagens/${img}" width="64">`;
+
+            carta.dataset.virada = "true";
 
             if (!primeiraCarta) {
                 primeiraCarta = carta;
@@ -50,9 +55,14 @@ function verificarPar() {
         resetar();
     } else {
         setTimeout(() => {
-            primeiraCarta.innerHTML = "";
-            segundaCarta.innerHTML = "";
+            primeiraCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
+            segundaCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
+            
+            primeiraCarta.dataset.virada = "false";
+            segundaCarta.dataset.virada = "false";
+            
             resetar();
+
         }, 800);
     }
 }
