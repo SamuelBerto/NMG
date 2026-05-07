@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let bloqueado = false;
 
     let jogadas = 0;
+    let paresEncontrados = 0;
 
     cartas.forEach(img => {
         const carta = document.createElement("div");
@@ -59,7 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function verificarPar() {
     if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
-        resetar();
+
+    paresEncontrados++;
+
+    if (paresEncontrados === imagens.length) {
+
+        setTimeout(() => {
+            alert(`Parabéns ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
+        }, 300);
+
+    }
+
+    resetar();
+
+    
     } else {
         setTimeout(() => {
             primeiraCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
