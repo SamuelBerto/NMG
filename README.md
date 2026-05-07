@@ -2,6 +2,8 @@
 
 Um jogo da memória desenvolvido com HTML, CSS e JavaScript puro.
 
+---
+
 ## 🎮 Sobre o projeto
 
 O **Nice Memory Game (NMG)** é um jogo da memória criado para praticar:
@@ -17,7 +19,13 @@ O jogador digita seu nome, inicia a partida e precisa encontrar todos os pares d
 
 ---
 
-# 🚀 Tecnologias utilizadas
+## 🎥 Gameplay
+
+![Gameplay](https://github.com/user-attachments/assets/71fabb0f-2281-4929-8afa-f323bf3453cf)
+
+---
+
+## 🚀 Tecnologias utilizadas
 
 * HTML5
 * CSS3
@@ -27,9 +35,9 @@ O jogador digita seu nome, inicia a partida e precisa encontrar todos os pares d
 
 ---
 
-# 📂 Estrutura do projeto
+## 📂 Estrutura do projeto
 
-```
+```bash
 Nice-Memory-Game/
 │
 ├── index.html
@@ -38,6 +46,7 @@ Nice-Memory-Game/
 │
 ├── imagens/
 │   ├── back.png
+│   ├── logo.png
 │   ├── 1.png
 │   ├── 2.png
 │   ├── 3.png
@@ -53,7 +62,7 @@ Nice-Memory-Game/
 
 ---
 
-# ✨ Funcionalidades
+## ✨ Funcionalidades
 
 ✅ Sistema de login com nome do jogador
 
@@ -69,7 +78,7 @@ Nice-Memory-Game/
 
 ---
 
-# 🕹️ Como jogar
+## 🕹️ Como jogar
 
 1. Digite seu nome
 2. Clique em "Jogar"
@@ -78,7 +87,7 @@ Nice-Memory-Game/
 
 ---
 
-# 📌 Melhorias futuras
+## 📌 Melhorias futuras
 
 * [ ] Contador de jogadas
 * [ ] Sistema de ranking
@@ -86,19 +95,12 @@ Nice-Memory-Game/
 * [ ] Temas por fase
 * [ ] Sons e efeitos
 * [ ] Animações nas cartas
-
-
----
-
-# 📸 Preview
-
-> Em breve screenshots e GIFs do projeto.
+* [ ] Responsividade mobile
 
 ---
 
-# 👨‍💻 Autor
+## 👨‍💻 Autor
 
 Desenvolvido por Samuel Berto.
 
 Estudante de Engenharia de Software e apaixonado por tecnologia e desenvolvimento de jogos.
-
