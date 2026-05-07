@@ -15,10 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
     cartas.sort(() => 0.5 - Math.random());
 
     const tabuleiro = document.getElementById("tabuleiro");
+    const status = document.getElementById("status");
 
     let primeiraCarta = null;
     let segundaCarta = null;
     let bloqueado = false;
+
+    let jogadas = 0;
 
     cartas.forEach(img => {
         const carta = document.createElement("div");
@@ -41,12 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 segundaCarta = carta;
                 bloqueado = true;
+                jogadas++;
+                status.innerText = `Jogadas: ${jogadas}`;
 
                 verificarPar();
             }
         };
 
         tabuleiro.appendChild(carta);
+
+    
     });
 
 
