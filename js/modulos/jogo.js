@@ -65,9 +65,22 @@ function mostrarRanking() {
     
     rankingDiv.innerHTML = "<h3>🏆Ranking</h3>";
     
-    rankings.slice(0, 5).forEach((player, index) => {
-        rankingDiv.innerHTML += `<p>${index + 1}. ${player.nome} - ${player.jogadas} jogadas</p>`;
-    });
+   rankings.slice(0, 5).forEach((player, index) => {
+
+    let medalha = "";
+
+    if (index === 0) medalha = "🥇";
+    else if (index === 1) medalha = "🥈";
+    else if (index === 2) medalha = "🥉";
+
+    rankingDiv.innerHTML += `
+        <p>
+            ${medalha} ${index + 1}. 
+            ${player.nome} - ${player.jogadas} jogadas
+        </p>
+    `;
+
+});
 }
 
 function verificarPar() {
