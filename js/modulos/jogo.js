@@ -65,6 +65,12 @@ function verificarPar() {
 
     if (paresEncontrados === imagens.length) {
 
+        let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
+
+        rankings.push({ nome: dados.nome, jogadas: jogadas });
+        
+        localStorage.setItem("ranking", JSON.stringify(rankings));
+
         setTimeout(() => {
             alert(`Parabéns ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
         }, 300);
