@@ -92,5 +92,32 @@ h2, #status {
 
     font-size: 18px;
 }
+#titulo {
+    text-align: center;
 
+    font-size: 42px;
 
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    color: #67118a;
+
+    letter-spacing: 6px;
+}
+
+#hud {
+    position: fixed;
+
+    left: 01%;
+    top: 23%;
+
+    width: 150px;
+
+    padding: 15px;
+
+    border: 4px solid #67118a;
+
+    background: #c285d4;
+
+    box-shadow: 4px 4px #67118a;
+}
