@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tabuleiro = document.getElementById("tabuleiro");
     const status = document.getElementById("status");
+    const rankingDiv = document.getElementById("ranking");
 
     let primeiraCarta = null;
     let segundaCarta = null;
@@ -57,6 +58,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
     });
 
+function mostrarRanking() {
+    let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
+    
+    rankings.sort((a, b) => a.jogadas - b.jogadas);
+    
+    rankingDiv.innerHTML = "<h3>🏆Ranking</h3>";
+    
+    rankings.slice(0, 5).forEach((player, index) => {
+        rankingDiv.innerHTML += `<p>${index + 1}. ${player.nome} - ${player.jogadas} jogadas</p>`;
+    });
+}
 
 function verificarPar() {
     if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
@@ -70,6 +82,8 @@ function verificarPar() {
         rankings.push({ nome: dados.nome, jogadas: jogadas });
         
         localStorage.setItem("ranking", JSON.stringify(rankings));
+
+        mostrarRanking();
 
         setTimeout(() => {
             alert(`Parabéns ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
@@ -100,7 +114,10 @@ function resetar() {
     bloqueado = false;
 }
 
+mostrarRanking();
+
 });
+
 
 
 
