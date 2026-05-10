@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const rankingDiv = document.getElementById("ranking");
     const timer = document.getElementById("timer");
 
+
+    const somVirar = new Audio("audio/viracarta.wav");
+    const somAcerto = new Audio("audio/acertacarta.wav");
+    const somVitoria = new Audio("audio/vitoria.wav");
+    const somReset = new Audio("audio/reset.wav");
+
     let primeiraCarta = null;
     let segundaCarta = null;
     let bloqueado = false;
@@ -41,13 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
         carta.dataset.virada = "false";
         carta.innerHTML = `<img src="imagens/back.png" width="64">`;
         
+        
         carta.onclick =() => {
             if (bloqueado) return;
             if (carta.dataset.virada === "true") return;
             if (carta === primeiraCarta) return;
 
             carta.innerHTML = `<img src="imagens/${img}" width="64">`;
-
+            somVirar.play();
             carta.dataset.virada = "true";
 
             if (!primeiraCarta) {
@@ -94,7 +101,7 @@ function mostrarRanking() {
 
 function verificarPar() {
     if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
-
+    somAcerto.play();
     paresEncontrados++;
 
     if (paresEncontrados === imagens.length) {
@@ -106,10 +113,15 @@ function verificarPar() {
         localStorage.setItem("ranking", JSON.stringify(rankings));
 
         mostrarRanking();
+        setTimeout(() => {
+            somVitoria.currentTime = 0;
+            somVitoria.play();
+        }, 400);
 
         setTimeout(() => {
-            alert(`Parabéns ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
-        }, 300);
+            alert(`Parabéns, ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
+        }, 1400);
+        
 
     }
 
@@ -139,7 +151,14 @@ function resetar() {
 mostrarRanking();
 
 window.reiniciar = function () {
-    location.reload();
+
+    somReset.play();
+
+    setTimeout(() => {
+        location.reload();
+    }, 1200);
+    
+   
 }
 
 });
