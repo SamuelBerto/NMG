@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tabuleiro = document.getElementById("tabuleiro");
     const status = document.getElementById("status");
     const rankingDiv = document.getElementById("ranking");
+    const timer = document.getElementById("timer");
 
     let primeiraCarta = null;
     let segundaCarta = null;
@@ -24,6 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let jogadas = 0;
     let paresEncontrados = 0;
+    let segundos = 0;
+    
+    setInterval(() => {
+        segundos++;
+       let min = String(Math.floor(segundos / 60)).padStart(2, "0");
+       let seg = String(segundos % 60).padStart(2, "0");
+       timer.innerText = `Tempo: ${min}:${seg}`;
+    }, 1000);
 
     cartas.forEach(img => {
         const carta = document.createElement("div");
