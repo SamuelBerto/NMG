@@ -121,3 +121,42 @@ h2, #status {
 
     box-shadow: 4px 4px #67118a;
 }
+#infos {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+
+    font-size: 12px;
+}
+#player,
+#status,
+#timer {
+    margin: 20px;
+    color: #67118a;
+    font-size: 15px;
+
+}
+#reiniciar {
+    padding: 10px 14px;
+
+    background: #d89ce8;
+
+    border: 3px solid #67118a;
+
+    color: #67118a;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+h1, h2, p, button {
+    text-shadow: 2px 2px #e0aaff;
+}

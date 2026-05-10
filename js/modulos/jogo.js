@@ -138,7 +138,12 @@ function resetar() {
 
 mostrarRanking();
 
+window.reiniciar = function () {
+    location.reload();
+}
+
 });
+
 
 
 
