@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("player").innerText = "Jogador: " + dados.nome;
 
-    const imagens = ["1.png","2.png","3.png","4.png","5.png","6.png"];
+    const imagens = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
 
     let cartas = [...imagens, ...imagens];
     cartas.sort(() => 0.5 - Math.random());
@@ -32,12 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let jogadas = 0;
     let paresEncontrados = 0;
     let segundos = 0;
-    
+    let tempoFormatado = "00:00";
+
     setInterval(() => {
         segundos++;
-       let min = String(Math.floor(segundos / 60)).padStart(2, "0");
-       let seg = String(segundos % 60).padStart(2, "0");
-       timer.innerText = `Tempo: ${min}:${seg}`;
+        let min = String(Math.floor(segundos / 60)).padStart(2, "0");
+        let seg = String(segundos % 60).padStart(2, "0");
+
+        timer.innerText = `Tempo: ${min}:${seg}`;
+
+        tempoFormatado = `${min}:${seg}`;
+
     }, 1000);
 
     cartas.forEach(img => {
@@ -46,14 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
         carta.dataset.img = img;
         carta.dataset.virada = "false";
         carta.innerHTML = `<img src="imagens/back.png" width="64">`;
-        
-        
-        carta.onclick =() => {
+
+
+        carta.onclick = () => {
             if (bloqueado) return;
             if (carta.dataset.virada === "true") return;
             if (carta === primeiraCarta) return;
 
             carta.innerHTML = `<img src="imagens/${img}" width="64">`;
+            somVirar.currentTime = 0;
             somVirar.play();
             carta.dataset.virada = "true";
 
@@ -71,95 +77,100 @@ document.addEventListener("DOMContentLoaded", () => {
 
         tabuleiro.appendChild(carta);
 
-    
+
     });
 
-function mostrarRanking() {
-    let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
-    
-    rankings.sort((a, b) => a.jogadas - b.jogadas);
-    
-    rankingDiv.innerHTML = "<h3>🏆Ranking</h3>";
-    
-   rankings.slice(0, 5).forEach((player, index) => {
+    function mostrarRanking() {
+        let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
 
-    let medalha = "";
+        rankings.sort((a, b) => a.jogadas - b.jogadas);
 
-    if (index === 0) medalha = "🥇";
-    else if (index === 1) medalha = "🥈";
-    else if (index === 2) medalha = "🥉";
+        rankingDiv.innerHTML = "<h3>🏆Ranking</h3>";
 
-    rankingDiv.innerHTML += `
+        rankings.slice(0, 5).forEach((player, index) => {
+
+            let medalha = "";
+
+            if (index === 0) medalha = "🥇";
+            else if (index === 1) medalha = "🥈";
+            else if (index === 2) medalha = "🥉";
+
+            rankingDiv.innerHTML += `
         <p>
             ${medalha} ${index + 1}. 
-            ${player.nome} - ${player.jogadas} jogadas
+            ${player.nome} - ${player.jogadas} jogadas - ⏱ ${player.tempo}
         </p>
     `;
 
-});
-}
-
-function verificarPar() {
-    if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
-    somAcerto.play();
-    paresEncontrados++;
-
-    if (paresEncontrados === imagens.length) {
-
-        let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
-
-        rankings.push({ nome: dados.nome, jogadas: jogadas });
-        
-        localStorage.setItem("ranking", JSON.stringify(rankings));
-
-        mostrarRanking();
-        setTimeout(() => {
-            somVitoria.currentTime = 0;
-            somVitoria.play();
-        }, 400);
-
-        setTimeout(() => {
-            alert(`Parabéns, ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
-        }, 1400);
-        
-
+        });
     }
 
-    resetar();
+    function verificarPar() {
+        if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
+            somAcerto.currentTime = 0;
+            somAcerto.play();
+            paresEncontrados++;
 
-    
-    } else {
-        setTimeout(() => {
-            primeiraCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
-            segundaCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
-            
-            primeiraCarta.dataset.virada = "false";
-            segundaCarta.dataset.virada = "false";
-            
+            if (paresEncontrados === imagens.length) {
+
+                let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
+
+                rankings.push({
+                 nome: dados.nome,
+                  jogadas: jogadas,
+                 tempo: tempoFormatado
+                });
+
+                localStorage.setItem("ranking", JSON.stringify(rankings));
+
+                mostrarRanking();
+                setTimeout(() => {
+                    somVitoria.currentTime = 0;
+                    somVitoria.play();
+                }, 400);
+
+                setTimeout(() => {
+                    alert(`Parabéns, ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
+                }, 1400);
+
+
+            }
+
             resetar();
 
-        }, 800);
+
+        } else {
+            setTimeout(() => {
+                primeiraCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
+                segundaCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
+
+                primeiraCarta.dataset.virada = "false";
+                segundaCarta.dataset.virada = "false";
+
+                resetar();
+
+            }, 800);
+        }
     }
-}
 
-function resetar() {
-    primeiraCarta = null;
-    segundaCarta = null;
-    bloqueado = false;
-}
+    function resetar() {
+        primeiraCarta = null;
+        segundaCarta = null;
+        bloqueado = false;
+    }
 
-mostrarRanking();
+    mostrarRanking();
 
-window.reiniciar = function () {
+    window.reiniciar = function () {
+        somReset.currentTime = 0;
+        somReset.play();
 
-    somReset.play();
+        setTimeout(() => {
+            location.reload();
+        }, 1200);
 
-    setTimeout(() => {
-        location.reload();
-    }, 1200);
-    
-   
-}
+
+    }
 
 });
 
