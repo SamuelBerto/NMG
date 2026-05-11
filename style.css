@@ -160,3 +160,7 @@ h2, #status {
 h1, h2, p, button {
     text-shadow: 2px 2px #e0aaff;
 }
+#ranking h3,
+#ranking p {
+    text-shadow: none;
+}
