@@ -1,64 +1,40 @@
 # 🧠 Nice Memory Game
 
-Um jogo da memória desenvolvido com HTML, CSS e JavaScript puro.
+Um jogo da memória em estilo pixel art desenvolvido com HTML, CSS e JavaScript puro.
 
 ---
 
 ## 🎮 Sobre o projeto
 
-O **Nice Memory Game (NMG)** é um jogo da memória criado para praticar:
+O **Nice Memory Game (NMG)** é um jogo da memória criado para praticar desenvolvimento front-end, lógica de programação e organização de projetos utilizando JavaScript puro.
 
-* Manipulação de DOM
-* Lógica com JavaScript
-* Organização de projeto
-* Uso de LocalStorage
-* Estruturação com Git e GitHub
-* Criação de interfaces interativas
+O projeto começou com uma estrutura simples e evoluiu com novas funcionalidades, melhorias visuais e efeitos sonoros, transformando o jogo em uma experiência mais dinâmica e interativa.
 
-O jogador digita seu nome, inicia a partida e precisa encontrar todos os pares de cartas.
+Durante o desenvolvimento foram aplicados conceitos como:
+
+- Manipulação de DOM
+- Estruturação de projeto
+- Modularização de código
+- LocalStorage
+- Organização com Git e GitHub
+- Interface pixel art
+- Sistema de ranking
+- Controle de tempo
+- Efeitos sonoros
 
 ---
 
 ## 🎥 Gameplay
 
-![Gameplay](https://github.com/user-attachments/assets/71fabb0f-2281-4929-8afa-f323bf3453cf)
+### 🕹️ Versão Atual
+
+(coloque aqui o novo vídeo ou GIF atualizado)
 
 ---
 
-## 🚀 Tecnologias utilizadas
+### 📼 Primeira versão do projeto
 
-* HTML5
-* CSS3
-* JavaScript
-* Git
-* GitHub
-
----
-
-## 📂 Estrutura do projeto
-
-```bash
-Nice-Memory-Game/
-│
-├── index.html
-├── jogo.html
-├── style.css
-│
-├── imagens/
-│   ├── back.png
-│   ├── logo.png
-│   ├── 1.png
-│   ├── 2.png
-│   ├── 3.png
-│   ├── 4.png
-│   ├── 5.png
-│   └── 6.png
-│
-└── js/
-    └── modulos/
-        ├── login.js
-        └── jogo.js
-```
+![Gameplay Inicial](https://github.com/user-attachments/assets/71fabb0f-2281-4929-8afa-f323bf3453cf)
 
 ---
 
@@ -70,32 +46,42 @@ Nice-Memory-Game/
 
 ✅ Sistema de comparação de pares
 
-✅ Cartas com verso personalizado
-
 ✅ Bloqueio de múltiplos cliques
 
-✅ Uso de LocalStorage
+✅ Sistema de ranking
+
+✅ Ranking com medalhas 🥇🥈🥉
+
+✅ Cronômetro em tempo real
+
+✅ Tempo salvo no ranking
+
+✅ Botão de reiniciar partida
+
+✅ Efeitos sonoros retrô
+
+✅ Interface em estilo pixel art
+
+✅ Salvamento com LocalStorage
+
+✅ Estrutura modular em JavaScript
 
 ---
 
-## 🕹️ Como jogar
+## 🚀 Tecnologias utilizadas
 
-1. Digite seu nome
-2. Clique em "Jogar"
-3. Encontre todos os pares
-4. Complete o jogo no menor número de jogadas possível
+- HTML5
+- CSS3
+- JavaScript
+- LocalStorage
+- Git
+- GitHub
 
 ---
 
-## 📌 Melhorias futuras
+## 📂 Estrutura do projeto
 
-* [ ] Contador de jogadas
-* [ ] Sistema de ranking
-* [ ] Temporizador
-* [ ] Temas por fase
-* [ ] Sons e efeitos
-* [ ] Animações nas cartas
-* [ ] Responsividade mobile
+<img width="1271" height="1078" alt="arquitetura-nmg" src="https://github.com/user-attachments/assets/0637fdab-24a8-47a0-ac1b-f40da240cd90" />
 
 ---
 
