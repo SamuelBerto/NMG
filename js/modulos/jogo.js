@@ -100,38 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
 });
-}
-
-function verificarPar() {
-    if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
-    somAcerto.play();
-    paresEncontrados++;
-
-    if (paresEncontrados === imagens.length) {
-
-        let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
-
-         rankings.push({
-           nome: dados.nome,
-           jogadas: jogadas,
-           tempo: tempoFormatado
-});
-
-        localStorage.setItem("ranking", JSON.stringify(rankings));
-
-        mostrarRanking();
-        setTimeout(() => {
-            somVitoria.currentTime = 0;
-            somVitoria.play();
-        }, 400);
-
-        setTimeout(() => {
-            alert(`Parabéns, ${dados.nome}! Você venceu em ${jogadas} jogadas!`);
-        }, 1400);
-        
-
     }
-
+    
     function verificarPar() {
         if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
             somAcerto.currentTime = 0;
