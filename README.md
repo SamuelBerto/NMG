@@ -9,7 +9,7 @@ Um jogo da memória desenvolvido com HTML, CSS e JavaScript puro, com visual pix
 
 O **Nice Memory Game (NMG)** foi criado para praticar desenvolvimento web front-end e lógica de programação utilizando JavaScript puro.
 
-O projeto evoluiu ao longo do desenvolvimento, recebendo novas funcionalidades e melhorias visuais para simular um projeto real de portfólio.
+O projeto evoluiu progressivamente ao longo do desenvolvimento, recebendo melhorias visuais, novas funcionalidades e organização utilizando Git Flow.
 
 Atualmente o jogo possui:
 
@@ -23,28 +23,35 @@ Atualmente o jogo possui:
 
 ---
 
-## 🎥 Gameplay Atual
+## 🎮 Gameplay Atual
 
----
-<img width="1152" height="648" alt="NmgGIF2" src="https://github.com/user-attachments/assets/f46351c9-4317-4763-9188-70323a7b21f5" />
+<img width="1152" height="648" alt="NMGGIF3" src="https://github.com/user-attachments/assets/d06dada6-0cd7-4b38-8e9b-a3ea94ee56a3" />
 
 
 ---
 
 ## 🖼️ Evolução do Projeto
 ---
+### Primeira versão
 
 <img width="1152" height="648" alt="gameplaynmg" src="https://github.com/user-attachments/assets/4009b1f8-e8cd-4a1f-9093-8f29d319074e" />
 
 ---
-<img width="1680" height="1010" alt="NMG0" src="https://github.com/user-attachments/assets/bbe5e257-70b7-403a-9fb3-db0a9be1d027" />
+### Adição do sistema de ranking
+
+<img width="1680" height="1010" alt="css2" src="https://github.com/user-attachments/assets/8c5f6827-c20b-4ffb-b156-b247cfc5db45" />
+
+
+---
+### Melhora no Visual
+
+<img width="1680" height="1050" alt="CSS3" src="https://github.com/user-attachments/assets/c0839bd8-88b4-4e93-9c1d-dac9b01c14da" />
 
 ---
 
-<img width="1680" height="1050" alt="CSS3" src="https://github.com/user-attachments/assets/8c771b97-4d0f-42e6-a5f6-de4f4eca9642" />
+### Novo visual espacial
 
----
-<img width="1680" height="1050" alt="NMG5" src="https://github.com/user-attachments/assets/058b4da5-1628-4f22-be9c-7265f228a071" />
+<img width="1680" height="1010" alt="NMG6" src="https://github.com/user-attachments/assets/3d5a1ae5-46c3-4399-8ae2-d5c1784784ce" />
 
 ---
 
@@ -116,6 +123,12 @@ Nice-Memory-Game/
 
 ✅ Bloqueio de múltiplos cliques
 
+✅ Fundo espacial animado
+
+✅ Animação de virar cartas
+
+✅ Efeito visual ao acertar pares
+
 ---
 
 ## 🔊 Efeitos sonoros
@@ -145,12 +158,11 @@ O jogo possui sons para:
 
 * [ ] Sistema de fases
 * [ ] Temas desbloqueáveis
-* [ ] Animações nas cartas
 * [ ] Responsividade mobile
 * [ ] Sistema de dificuldade
 * [ ] Música de fundo
-* [ ] Ranking online
 * [ ] Efeitos visuais nas vitórias
+* [ ] Efeitos de partículas
 
 ---
 
@@ -158,14 +170,15 @@ O jogo possui sons para:
 
 Durante o desenvolvimento deste projeto foram praticados conceitos como:
 
-* Manipulação de DOM
-* Eventos em JavaScript
-* Organização de código
-* Estruturação com Git Flow
-* Uso de branches
-* Commits semânticos
-* Armazenamento local
-* Lógica de jogos
+- Manipulação de DOM
+- Eventos em JavaScript
+- LocalStorage
+- Organização de código
+- Git Flow
+- Commits semânticos
+- Estruturação de interface
+- Lógica de jogos
+- Animações com CSS
 
 ---
 
