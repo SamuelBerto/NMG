@@ -249,3 +249,22 @@ button {
             130px 1090px;
     }
 }
+.acerto{
+    animation: brilhoAcerto 0.6s ease;
+
+}
+@keyframes brilhoAcerto {
+    0% {
+        box-shadow: 0 0 5px #00ff88;
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px #00ff88,
+            0 0 40px #00ff88;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #00ff88;
+    }
+}

@@ -114,6 +114,16 @@ document.addEventListener("DOMContentLoaded", () => {
             somAcerto.play();
             paresEncontrados++;
 
+            primeiraCarta.classList.add("acerto");
+            segundaCarta.classList.add("acerto");
+
+            setTimeout(() => {
+                primeiraCarta.classList.remove("acerto");
+                segundaCarta.classList.remove("acerto");
+            }, 600);
+            
+
+
             if (paresEncontrados === imagens.length) {
 
                 let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
