@@ -35,6 +35,7 @@ body {
     margin-top: 40px;
     perspective: 1000px;
 }
+
 .carta {
     width: 70px;
     height: 70px;
@@ -47,14 +48,14 @@ body {
 
     cursor: pointer;
 
-    border-radius: 6px;
+    border-radius: 3px;
 
-    border: 3px solid #b66dff;
+    border: 2px solid #b66dff;
 
     box-shadow:
         0 0 8px #b66dff,
         0 0 16px #7b2cbf,
-        4px 4px #240046;
+        2px 2px #240046;
 
     image-rendering: pixelated;
 
@@ -62,10 +63,12 @@ body {
         transform 0.4s ease,
         box-shadow 0.3s ease;
 }
+
 .carta:hover {
-    transform: scale(1.08) rotateY(5deg);
-    box-shadow: 0 0 12px #e0aaff,0 0 24px #c77dff, 4px 4px #240046;
+    transform: scale(1.03);
+    box-shadow: 0 0 12px #e0aaff, 0 0 24px #c77dff, 2px 2px #240046;
 }
+
 .virando {
     animation: virarCarta 0.4s ease;
 }
@@ -90,17 +93,19 @@ body {
     right: 20px;
     bottom: 20px;
 
-    width: 180px;
+    width: 190px;
 
-    padding: 10px;
+    padding: 12px;
 
-    background: #c285d4;
+    background: rgba(194, 133, 212, 0.9);
 
-    border: 4px solid #67118a;
+    border: 2px solid #67118a;
+
+    border-radius: 6px;
 
     color: #67118a;
 
-    box-shadow: 4px 4px #67118a;
+    backdrop-filter: blur(3px);
 }
 
 
@@ -119,6 +124,7 @@ body {
     image-rendering: pixelated;
     font-size: 10px;
 }
+
 .container-jogo {
     display: flex;
     justify-content: center;
@@ -132,18 +138,21 @@ body {
 .painel {
     display: flex;
     flex-direction: column;
-    
+
     justify-content: space-between;
 
     width: 500px;
 }
-h2, #status {
+
+h2,
+#status {
     text-align: center;
 
     margin-top: 20px;
 
     font-size: 18px;
 }
+
 #titulo {
     text-align: center;
 
@@ -173,6 +182,7 @@ h2, #status {
 
     box-shadow: 4px 4px #67118a;
 }
+
 #infos {
     display: flex;
 
@@ -186,6 +196,7 @@ h2, #status {
 
     font-size: 12px;
 }
+
 #player,
 #status,
 #timer {
@@ -194,6 +205,7 @@ h2, #status {
     font-size: 15px;
 
 }
+
 #reiniciar {
     padding: 10px 14px;
 
@@ -209,13 +221,19 @@ h2, #status {
 
     cursor: pointer;
 }
-h1, h2, p, button {
+
+h1,
+h2,
+p,
+button {
     text-shadow: 2px 2px #e0aaff;
 }
+
 #ranking h3,
 #ranking p {
     text-shadow: none;
 }
+
 @keyframes estrelas {
     from {
         background-position:
@@ -223,6 +241,7 @@ h1, h2, p, button {
             40px 60px,
             130px 90px;
     }
+
     to {
         background-position:
             0 1000px,
