@@ -25,8 +25,8 @@ Atualmente o jogo possui:
 
 ## 🎥 Gameplay Atual
 
-> Adicione aqui o vídeo/GIF mais recente do projeto funcionando.
-
+---
+<img width="1152" height="648" alt="NmgGIF2" src="https://github.com/user-attachments/assets/f46351c9-4317-4763-9188-70323a7b21f5" />
 
 
 ---
