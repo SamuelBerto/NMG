@@ -1,9 +1,28 @@
 body {
-    background: #c285d4;
+    background: #12002b;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#b66dff 1px, transparent 1px),
+        radial-gradient(#ffffff 2px, transparent 2px);
+
+    background-size:
+        120px 120px,
+        180px 180px,
+        250px 250px;
+
+    background-position:
+        0 0,
+        40px 60px,
+        130px 90px;
+
     font-family: "Press Start 2P", cursive;
+
     color: #67118a;
+
     image-rendering: pixelated;
-  
+
+    animation: estrelas 20s linear infinite;
 }
 
 
@@ -163,4 +182,18 @@ h1, h2, p, button {
 #ranking h3,
 #ranking p {
     text-shadow: none;
+}
+@keyframes estrelas {
+    from {
+        background-position:
+            0 0,
+            40px 60px,
+            130px 90px;
+    }
+    to {
+        background-position:
+            0 1000px,
+            40px 1060px,
+            130px 1090px;
+    }
 }
