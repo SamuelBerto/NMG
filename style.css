@@ -30,40 +30,60 @@ body {
     display: grid;
 
     grid-template-columns: repeat(4, 80px);
-
     gap: 25px;
-
     justify-content: center;
-
     margin-top: 40px;
+    perspective: 1000px;
 }
 .carta {
     width: 70px;
     height: 70px;
+
     background: #1d003d;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
-    border-radius: 6%;
+
+    border-radius: 6px;
+
     border: 3px solid #b66dff;
-    box-shadow: 0 0 8px #b66dff,
+
+    box-shadow:
+        0 0 8px #b66dff,
         0 0 16px #7b2cbf,
         4px 4px #240046;
 
     image-rendering: pixelated;
 
-    transition: all 0.2s ease;
-   
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.3s ease;
 }
 .carta:hover {
-    transform: scale(1.08);
-
-    box-shadow:
-        0 0 12px #e0aaff,
-        0 0 24px #c77dff,
-        4px 4px #240046;
+    transform: scale(1.08) rotateY(5deg);
+    box-shadow: 0 0 12px #e0aaff,0 0 24px #c77dff, 4px 4px #240046;
 }
+.virando {
+    animation: virarCarta 0.4s ease;
+}
+
+@keyframes virarCarta {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(90deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
 #ranking {
     position: fixed;
 

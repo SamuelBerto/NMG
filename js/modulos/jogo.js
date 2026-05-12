@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let paresEncontrados = 0;
     let segundos = 0;
     let tempoFormatado = "00:00";
-    
+
     setInterval(() => {
         segundos++;
-       let min = String(Math.floor(segundos / 60)).padStart(2, "0");
-       let seg = String(segundos % 60).padStart(2, "0");
-       timer.innerText = `Tempo: ${min}:${seg}`;
-       tempoFormatado = `${min}:${seg}`;
+        let min = String(Math.floor(segundos / 60)).padStart(2, "0");
+        let seg = String(segundos % 60).padStart(2, "0");
+        timer.innerText = `Tempo: ${min}:${seg}`;
+        tempoFormatado = `${min}:${seg}`;
     }, 1000);
 
     cartas.forEach(img => {
@@ -56,6 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (carta === primeiraCarta) return;
 
             carta.innerHTML = `<img src="imagens/${img}" width="64">`;
+            carta.classList.add("virando");
+
+            setTimeout(() => {
+                carta.classList.remove("virando");
+            }, 400);
+
             somVirar.currentTime = 0;
             somVirar.play();
             carta.dataset.virada = "true";
@@ -99,9 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </p>
     `;
 
-});
+        });
     }
-    
+
     function verificarPar() {
         if (primeiraCarta.dataset.img === segundaCarta.dataset.img) {
             somAcerto.currentTime = 0;
@@ -113,9 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 let rankings = JSON.parse(localStorage.getItem("ranking")) || [];
 
                 rankings.push({
-                 nome: dados.nome,
-                  jogadas: jogadas,
-                 tempo: tempoFormatado
+                    nome: dados.nome,
+                    jogadas: jogadas,
+                    tempo: tempoFormatado
                 });
 
                 localStorage.setItem("ranking", JSON.stringify(rankings));
@@ -138,13 +144,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } else {
             setTimeout(() => {
-                primeiraCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
-                segundaCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
 
-                primeiraCarta.dataset.virada = "false";
-                segundaCarta.dataset.virada = "false";
+                primeiraCarta.classList.add("virando");
+                segundaCarta.classList.add("virando");
 
-                resetar();
+                setTimeout(() => {
+
+                    primeiraCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
+                    segundaCarta.innerHTML = `<img src="imagens/back.png" width="64">`;
+
+                    primeiraCarta.dataset.virada = "false";
+                    segundaCarta.dataset.virada = "false";
+
+                    primeiraCarta.classList.remove("virando");
+                    segundaCarta.classList.remove("virando");
+
+                    resetar();
+
+                }, 200);
 
             }, 800);
         }
